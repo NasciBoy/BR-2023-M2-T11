@@ -1,12 +1,13 @@
 import pygame
-import os
+import os # ajuda a encontrar o diretório
 
 # Global Constants
 TITLE = "Chrome Dino Runner"
 SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 1100
 FPS = 30
-IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
+IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets") # ajuda a encontrar o diretório
+
 
 # Assets Constants
 ICON = pygame.image.load(os.path.join(IMG_DIR, "DinoWallpaper.png"))
