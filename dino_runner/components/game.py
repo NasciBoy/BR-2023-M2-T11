@@ -3,8 +3,7 @@ import pygame
 from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
-
-FONT_STYLE = "freesansbold.ttf"
+from dino_runner.utils.text_utils import draw_message_component   #####
 
 
 class Game:
@@ -37,6 +36,8 @@ class Game:
     def run(self):
         # Game loop: events - update - draw
         self.playing = True
+        self.game_speed = 20   # Reseta a velocidade do jogo
+        self.score = 0        # Reseta o score do jogo
         self.obstacle_manager.reset_obstacles()
         while self.playing:
             self.events()
@@ -47,6 +48,7 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.playing = False
+                self.running = False ###
 
     def update(self):
         user_input = pygame.key.get_pressed()
@@ -78,13 +80,14 @@ class Game:
             self.x_pos_bg = 0
         self.x_pos_bg -= self.game_speed
 
-    def draw_score(self):
-        font = pygame.font.Font(FONT_STYLE, 22)
-        text = font.render(f"Score: {self.score}", True, (0, 0, 0))
-        text_rect = text.get_rect()
-        text_rect.center = (1000, 50)
-        self.screen.blit(text, text_rect)
-
+    def draw_score(self):         ##
+        draw_message_component(
+            f"pontos: {self.score}",
+            self.screen,
+            pos_x_center = 1000,
+            pos_y_center = 50
+        )
+        
     def handle_events_on_menu(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -99,13 +102,20 @@ class Game:
         half_screen_width = SCREEN_WIDTH // 2
 
         if self.death_count == 0:
-            font = pygame.font.Font(FONT_STYLE, 22)
-            text = font.render("Press any key to start", True, (0, 0, 0))
-            text_rect = text.get_rect()
-            text_rect.center = (half_screen_width, half_screen_height)
-            self.screen.blit(text, text_rect)
+            draw_message_component("Press any key to start", self.screen)  ###
         else:
-            self.screen.blit(ICON, (half_screen_width - 20, half_screen_height - 140))
+            draw_message_component("Press any key to restart!!!", self.screen, pos_y_center = half_screen_height + 140)
+            draw_message_component(
+                f"Sua pontuação: {self.score}",
+                self.screen,
+                pos_y_center=half_screen_height - 150
+            )
+            draw_message_component(                            ###Contagem de vida
+                f"Contagem de vida: {self.death_count}",
+                self.screen,
+                pos_y_center=half_screen_height - 100
+            )
+            self.screen.blit(ICON, (half_screen_width - 40, half_screen_height - 30))
             # MOSTRAR MENSAGEM "Press any key to restart"
             # MOSTRAR score ATINGIDO
             # MOSTRAR death_count
@@ -113,5 +123,5 @@ class Game:
             ## Resetar score e game_speed quando uma partida for recomeçada
             ## Criar método para remover repetição de código do texto
 
-        pygame.display.update()  # ou .flip()
+        pygame.display.flip()  # ou .flip()
         self.handle_events_on_menu()
