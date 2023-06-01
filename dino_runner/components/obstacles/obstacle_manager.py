@@ -1,5 +1,6 @@
 import pygame
 import random
+
 from dino_runner.components.obstacles.cactus import Cactus 
 from dino_runner.components.obstacles.bird import Bird 
 
@@ -9,7 +10,7 @@ class ObstacleManager:
                 self.obstacles = [] 
 
         def update(self, game):
-                obstacle_type = [      #Lista de tipo do obstáculo Bird ou Cactus
+                obstacle_type = [      # Lista de tipo do obstáculo Bird ou Cactus
                         Cactus(), 
                         Bird(), 
                 ] 
@@ -27,3 +28,6 @@ class ObstacleManager:
         def draw(self, screen): 
                 for obstacle in self.obstacles: 
                         obstacle.draw(screen)
+        
+        def reset_obstacles(self):
+                self.obstacles = []

@@ -1,6 +1,8 @@
+import random
+
 from dino_runner.utils.constants import BIRD
 from dino_runner.components.obstacles.obstacle import Obstacle
-import random
+
 
 class Bird(Obstacle):      # A classe Bird herda de Obstacle
     def __init__(self):
@@ -12,5 +14,6 @@ class Bird(Obstacle):      # A classe Bird herda de Obstacle
         screen.blit(self.image[self.step_index // 5], self.rect)  #O contador index é dividido em valor inteiro p/ controlar a img
         self.step_index += 1
 
-        if self.step_index >= 10:
-            self.step_index = 0
+        if self.step_index >= 9:  # Step_index não pode ser 10 senão dá erro
+            self.step_index = 0      # Pois 10 // 5 = 2 ERRO somente 0 ou 1
+                                        # 9 // 5 = 1 

@@ -7,8 +7,8 @@ from dino_runner.components.obstacles.obstacle import Obstacle
 class Cactus(Obstacle):            #Cactus Herda de Obstacle
 
     CACTUS = [                     # Dicionário de large e small cactus e posição Y
-        (LARGE_CACTUS, 325),
-        (SMALL_CACTUS, 340),
+        (LARGE_CACTUS, 315),
+        (SMALL_CACTUS, 330),
     ]
 
     def __init__(self):
