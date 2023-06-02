@@ -22,8 +22,8 @@ class Game:
         self.game_speed = 20
         self.x_pos_bg = 0
         self.y_pos_bg = 410
-        self.x_pos_cloud = 1280 # 
-        self.y_pos_cloud = 80 # 
+        self.x_pos_cloud = 1280 
+        self.y_pos_cloud = 80 
         self.player = Dinosaur()
         self.obstacle_manager = ObstacleManager()
         self.power_up_manager = PowerUpManager()
@@ -31,12 +31,12 @@ class Game:
 
     def execute(self):
         self.running = True
-        pygame.mixer.music.load(MUSIC_THEME) # Carregar a música
-        pygame.mixer.music.play(-1)  # -1 para reproduz em loop
+        pygame.mixer.music.load(MUSIC_THEME) 
+        pygame.mixer.music.play(-1)  
         while self.running:
             if not self.playing:
                 self.show_menu()
-                pygame.mixer.music.stop() # Parar a música
+                pygame.mixer.music.stop() 
                 self.player.move_x = 80
 
         pygame.display.quit()
@@ -44,12 +44,12 @@ class Game:
     
     def run(self):
         self.playing = True
-        pygame.mixer.music.stop()      # Parar a música
+        pygame.mixer.music.stop()      
         self.obstacle_manager.reset_obstacles()
         self.power_up_manager.reset_power_ups()
         self.game_speed = 20
         self.score = 0
-        pygame.mixer.music.play(-1)    # reiniciar a música
+        pygame.mixer.music.play(-1)    
         while self.playing:
             self.events()
             self.update()
@@ -80,7 +80,7 @@ class Game:
         self.draw_background()
         self.draw_score()
         self.draw_power_up_time()
-        self.draw_cloud()          # Médoto da nuvem
+        self.draw_cloud()          
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
         self.power_up_manager.draw(self.screen)
@@ -97,7 +97,6 @@ class Game:
             self.x_pos_bg = 0
         self.x_pos_bg -= self.game_speed
 
-    # método que desenha a nuvem na tela
     def draw_cloud(self):              
         cloud_img = CLOUD.get_width()
         self.screen.blit(CLOUD, (cloud_img + self.x_pos_cloud, self.y_pos_cloud))

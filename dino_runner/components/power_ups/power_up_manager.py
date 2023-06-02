@@ -1,10 +1,11 @@
 import random
 import pygame
-from pygame import mixer
 
+from pygame import mixer
 from dino_runner.components.power_ups.shield import Shield
 from dino_runner.components.power_ups.hammer import Hammer
 from dino_runner.components.power_ups.ice import Ice
+
 
 class PowerUpManager:
     def __init__(self):
@@ -12,13 +13,13 @@ class PowerUpManager:
         self.when_appears = 0 
         self.its_hammer = False
         self.its_shield = False
-        self.its_ice = False  # Adicionando a variável para verificar se é um power-up de gelo
+        self.its_ice = False  
     
     def generate_power_up(self, score):
         if len(self.power_ups) == 0 and self.when_appears == score:
             self.when_appears += random.randint(480, 530)
 
-            # Adicionando o power-up de gelo
+           
             if random.randint(0, 2) == 0:
                 self.power_ups.append(Hammer())
                 self.its_hammer = True
@@ -30,7 +31,7 @@ class PowerUpManager:
                 self.its_hammer = False
                 self.its_ice = False
             else:
-                self.power_ups.append(Ice())  # Adicionando o power-up de gelo
+                self.power_ups.append(Ice())  
                 self.its_ice = True
                 self.its_shield = False
                 self.its_hammer = False
@@ -46,13 +47,13 @@ class PowerUpManager:
                 if self.its_shield:
                     player.shield = True
                     player.hammer = False
-                    player.ice = False  # Adicionando o atributo de gelo ao jogador
+                    player.ice = False  
                 if self.its_hammer:
                     player.hammer = True
                     player.shield = False
-                    player.ice = False  # Adicionando o atributo de gelo ao jogador
+                    player.ice = False  
                 if self.its_ice:
-                    player.ice = True  # Definindo o atributo de gelo como True
+                    player.ice = True  
                     player.shield = False
                     player.hammer = False
                 player.has_power_up = True

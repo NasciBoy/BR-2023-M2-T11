@@ -12,10 +12,6 @@ IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")  # Constante d
 
 # Imagens gerais
 ICON = pygame.image.load(os.path.join(IMG_DIR, "DinoWallpaper.png"))
-JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJump.png"))
-JUMPING_SHIELD = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpShield.png"))
-JUMPING_HAMMER = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpHammer.png"))
-JUMPING_ICE = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpIce.png"))
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
 SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
 HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png')) 
@@ -25,6 +21,11 @@ BG2 = pygame.image.load(os.path.join(IMG_DIR, 'Imagem/back.jpg'))
 BG3 = pygame.image.load(os.path.join(IMG_DIR, 'Imagem/start.jpg'))
 
 # Imagems das ações no jogo e obstáculos
+JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJump.png"))
+JUMPING_SHIELD = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpShield.png"))
+JUMPING_HAMMER = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpHammer.png"))
+JUMPING_ICE = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpIce.png"))
+
 RUNNING = [
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoRun1.png")),
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoRun2.png")),
