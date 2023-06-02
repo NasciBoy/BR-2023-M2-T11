@@ -22,7 +22,7 @@ HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
 ICE = pygame.image.load(os.path.join(IMG_DIR, 'Other/flower.png'))
 BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
 BG2 = pygame.image.load(os.path.join(IMG_DIR, 'Imagem/back.jpg'))
-HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png')) 
+BG3 = pygame.image.load(os.path.join(IMG_DIR, 'Imagem/start.jpg'))
 
 # Imagems das ações no jogo e obstáculos
 RUNNING = [

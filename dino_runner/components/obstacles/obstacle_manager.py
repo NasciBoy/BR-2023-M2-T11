@@ -34,7 +34,7 @@ class ObstacleManager:
                                                 game.score += 100
                                         elif game.player.ice == True:
                                                 game.game_speed = 30
-                                                game.score -= 100
+                                                game.score -= 50
                                                 continue
                                         elif game.player.shield == True:
                                                 continue

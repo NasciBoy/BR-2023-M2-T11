@@ -1,7 +1,7 @@
 import pygame
 import pygame.mixer
 
-from dino_runner.utils.constants import BG, BG2, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, MUSIC_THEME, CLOUD
+from dino_runner.utils.constants import BG, BG2, BG3, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE, MUSIC_THEME, CLOUD
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.utils.text_utils import draw_message_component
@@ -37,6 +37,7 @@ class Game:
             if not self.playing:
                 self.show_menu()
                 pygame.mixer.music.stop() # Parar a música
+                self.player.move_x = 80
 
         pygame.display.quit()
         pygame.quit()
@@ -138,8 +139,8 @@ class Game:
                 self.run()
 
     def show_menu(self):
-        self.screen.fill((220, 230, 255))
-        #self.screen.blit(pygame.image.load('C:/Users/Vinícius/OneDrive/Área de Trabalho/João/MODULO II/Repositório clone/Repositorio do DINO/Dino-Joao/dino_runner/assets/Imagem/imagem.png'), (0, 0))
+        #self.screen.fill((220, 230, 255))
+        self.screen.blit((BG3), (0, 0))
         half_screen_height = SCREEN_HEIGHT // 2
         half_screen_width =  SCREEN_WIDTH // 2
         
